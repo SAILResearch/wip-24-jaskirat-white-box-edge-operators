@@ -1,0 +1,13 @@
+pillow
+flask
+requests
+onnxruntime
+opencv-python
+numpy
+https://download.pytorch.org/whl/cpu/torch-1.13.1%2Bcpu-cp39-cp39-linux_x86_64.whl
+torchvision
+transformers
+simpletransformers
+speedtest-cli
+matplotlib
+scipy

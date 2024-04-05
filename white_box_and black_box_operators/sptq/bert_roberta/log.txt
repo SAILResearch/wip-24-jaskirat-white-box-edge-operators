@@ -1,0 +1,170 @@
+nohup: ignoring input
++ main --input_model=bert-base-uncased-mrpc.onnx --output_model=bert-base-uncased-mrpc-int8-sptq.onnx --dataset_location=./glue_data/MRPC --quant_format=QDQ
++ init_params --input_model=bert-base-uncased-mrpc.onnx --output_model=bert-base-uncased-mrpc-int8-sptq.onnx --dataset_location=./glue_data/MRPC --quant_format=QDQ
++ for var in "$@"
++ case $var in
+++ echo --input_model=bert-base-uncased-mrpc.onnx
+++ cut -f2 -d=
++ input_model=bert-base-uncased-mrpc.onnx
++ for var in "$@"
++ case $var in
+++ echo --output_model=bert-base-uncased-mrpc-int8-sptq.onnx
+++ cut -f2 -d=
++ output_model=bert-base-uncased-mrpc-int8-sptq.onnx
++ for var in "$@"
++ case $var in
+++ echo --dataset_location=./glue_data/MRPC
+++ cut -f2 -d=
++ dataset_location=./glue_data/MRPC
++ for var in "$@"
++ case $var in
+++ echo --quant_format=QDQ
+++ cut -f2 -d=
++ quant_format=QDQ
++ run_tuning
++ [[ bert-base-uncased-mrpc.onnx =~ bert-base-uncased ]]
++ model_name_or_path=Intel/bert-base-uncased-mrpc
++ TASK_NAME=mrpc
++ num_heads=12
++ hidden_size=768
++ [[ bert-base-uncased-mrpc.onnx =~ roberta-base ]]
++ [[ bert-base-uncased-mrpc.onnx =~ xlm-roberta-base ]]
++ [[ bert-base-uncased-mrpc.onnx =~ camembert-base ]]
++ [[ bert-base-uncased-mrpc.onnx =~ distilbert-base ]]
++ [[ bert-base-uncased-mrpc.onnx =~ albert-base ]]
++ [[ bert-base-uncased-mrpc.onnx =~ MiniLM-L6 ]]
++ [[ bert-base-uncased-mrpc.onnx =~ MiniLM-L12 ]]
++ [[ bert-base-uncased-mrpc.onnx =~ bert-base-cased ]]
++ [[ bert-base-uncased-mrpc.onnx =~ xlnet-base-cased ]]
++ [[ bert-base-uncased-mrpc.onnx =~ bert-mini ]]
++ [[ bert-base-uncased-mrpc.onnx =~ electra-small-discriminator ]]
++ [[ bert-base-uncased-mrpc.onnx =~ bart ]]
++ [[ bert-base-uncased-mrpc.onnx =~ deberta ]]
++ python main.py --model_name_or_path Intel/bert-base-uncased-mrpc --model_path bert-base-uncased-mrpc.onnx --output_model bert-base-uncased-mrpc-int8-sptq.onnx --data_path ./glue_data/MRPC --task mrpc --num_heads 12 --hidden_size 768 --quant_format QDQ --tune
+/home/21js160/anaconda3/lib/python3.10/site-packages/transformers/data/processors/glue.py:174: FutureWarning: This processor will be removed from the library soon, preprocessing should be handled with the 🤗 Datasets library. You can have a look at this example script for pointers: https://github.com/huggingface/transformers/blob/main/examples/pytorch/text-classification/run_glue.py
+  warnings.warn(DEPRECATION_WARNING.format("processor"), FutureWarning)
+2023-10-31 16:19:15 [INFO] Start auto tuning.
+2023-10-31 16:19:15 [INFO] Execute the tuning process due to detect the evaluation function.
+2023-10-31 16:19:15 [INFO] Adaptor has 5 recipes.
+2023-10-31 16:19:15 [INFO] 0 recipes specified by user.
+2023-10-31 16:19:15 [INFO] 3 recipes require future tuning.
+2023-10-31 16:19:15 [INFO] *** Initialize auto tuning
+2023-10-31 16:19:15 [INFO] {
+2023-10-31 16:19:15 [INFO]     'PostTrainingQuantConfig': {
+2023-10-31 16:19:15 [INFO]         'AccuracyCriterion': {
+2023-10-31 16:19:15 [INFO]             'criterion': 'relative',
+2023-10-31 16:19:15 [INFO]             'higher_is_better': True,
+2023-10-31 16:19:15 [INFO]             'tolerable_loss': 0.01,
+2023-10-31 16:19:15 [INFO]             'absolute': None,
+2023-10-31 16:19:15 [INFO]             'keys': <bound method AccuracyCriterion.keys of <neural_compressor.config.AccuracyCriterion object at 0x7f2bb6f0af80>>,
+2023-10-31 16:19:15 [INFO]             'relative': 0.01
+2023-10-31 16:19:15 [INFO]         },
+2023-10-31 16:19:15 [INFO]         'approach': 'post_training_static_quant',
+2023-10-31 16:19:15 [INFO]         'backend': 'default',
+2023-10-31 16:19:15 [INFO]         'calibration_sampling_size': [
+2023-10-31 16:19:15 [INFO]             100
+2023-10-31 16:19:15 [INFO]         ],
+2023-10-31 16:19:15 [INFO]         'device': 'cpu',
+2023-10-31 16:19:15 [INFO]         'diagnosis': False,
+2023-10-31 16:19:15 [INFO]         'domain': 'auto',
+2023-10-31 16:19:15 [INFO]         'example_inputs': None,
+2023-10-31 16:19:15 [INFO]         'excluded_precisions': [
+2023-10-31 16:19:15 [INFO]         ],
+2023-10-31 16:19:15 [INFO]         'framework': 'onnxruntime',
+2023-10-31 16:19:15 [INFO]         'inputs': [
+2023-10-31 16:19:15 [INFO]         ],
+2023-10-31 16:19:15 [INFO]         'model_name': '',
+2023-10-31 16:19:15 [INFO]         'ni_workload_name': 'quantization',
+2023-10-31 16:19:15 [INFO]         'op_name_dict': None,
+2023-10-31 16:19:15 [INFO]         'op_type_dict': None,
+2023-10-31 16:19:15 [INFO]         'outputs': [
+2023-10-31 16:19:15 [INFO]         ],
+2023-10-31 16:19:15 [INFO]         'quant_format': 'QDQ',
+2023-10-31 16:19:15 [INFO]         'quant_level': 'auto',
+2023-10-31 16:19:15 [INFO]         'recipes': {
+2023-10-31 16:19:15 [INFO]             'smooth_quant': False,
+2023-10-31 16:19:15 [INFO]             'smooth_quant_args': {
+2023-10-31 16:19:15 [INFO]             },
+2023-10-31 16:19:15 [INFO]             'layer_wise_quant': False,
+2023-10-31 16:19:15 [INFO]             'layer_wise_quant_args': {
+2023-10-31 16:19:15 [INFO]             },
+2023-10-31 16:19:15 [INFO]             'fast_bias_correction': False,
+2023-10-31 16:19:15 [INFO]             'weight_correction': False,
+2023-10-31 16:19:15 [INFO]             'gemm_to_matmul': True,
+2023-10-31 16:19:15 [INFO]             'graph_optimization_level': None,
+2023-10-31 16:19:15 [INFO]             'first_conv_or_matmul_quantization': True,
+2023-10-31 16:19:15 [INFO]             'last_conv_or_matmul_quantization': True,
+2023-10-31 16:19:15 [INFO]             'pre_post_process_quantization': True,
+2023-10-31 16:19:15 [INFO]             'add_qdq_pair_to_weight': False,
+2023-10-31 16:19:15 [INFO]             'optypes_to_exclude_output_quant': [
+2023-10-31 16:19:15 [INFO]             ],
+2023-10-31 16:19:15 [INFO]             'dedicated_qdq_pair': False,
+2023-10-31 16:19:15 [INFO]             'rtn_args': {
+2023-10-31 16:19:15 [INFO]             },
+2023-10-31 16:19:15 [INFO]             'awq_args': {
+2023-10-31 16:19:15 [INFO]             },
+2023-10-31 16:19:15 [INFO]             'gptq_args': {
+2023-10-31 16:19:15 [INFO]             },
+2023-10-31 16:19:15 [INFO]             'teq_args': {
+2023-10-31 16:19:15 [INFO]             }
+2023-10-31 16:19:15 [INFO]         },
+2023-10-31 16:19:15 [INFO]         'reduce_range': None,
+2023-10-31 16:19:15 [INFO]         'TuningCriterion': {
+2023-10-31 16:19:15 [INFO]             'max_trials': 100,
+2023-10-31 16:19:15 [INFO]             'objective': [
+2023-10-31 16:19:15 [INFO]                 'performance'
+2023-10-31 16:19:15 [INFO]             ],
+2023-10-31 16:19:15 [INFO]             'strategy': 'basic',
+2023-10-31 16:19:15 [INFO]             'strategy_kwargs': None,
+2023-10-31 16:19:15 [INFO]             'timeout': 0
+2023-10-31 16:19:15 [INFO]         },
+2023-10-31 16:19:15 [INFO]         'use_bf16': True
+2023-10-31 16:19:15 [INFO]     }
+2023-10-31 16:19:15 [INFO] }
+2023-10-31 16:19:15 [WARNING] [Strategy] Please install `mpi4py` correctly if using distributed tuning; otherwise, ignore this warning.
+2023-10-31 16:19:16 [WARNING] The model is automatically detected as an NLP model. You can use 'domain' argument in 'PostTrainingQuantConfig' to overwrite it
+2023-10-31 16:19:16 [WARNING] Graph optimization level is automatically set to ENABLE_EXTENDED. You can use 'recipe' argument in 'PostTrainingQuantConfig'to overwrite it
+2023-10-31 16:19:22 [INFO] Get FP32 model baseline.
+/home/21js160/anaconda3/lib/python3.10/site-packages/transformers/data/metrics/__init__.py:61: FutureWarning: This metric will be removed from the library soon, metrics should be handled with the 🤗 Evaluate library. You can have a look at this example script for pointers: https://github.com/huggingface/transformers/blob/main/examples/pytorch/text-classification/run_glue.py
+  warnings.warn(DEPRECATION_WARNING, FutureWarning)
+/home/21js160/anaconda3/lib/python3.10/site-packages/transformers/data/metrics/__init__.py:37: FutureWarning: This metric will be removed from the library soon, metrics should be handled with the 🤗 Evaluate library. You can have a look at this example script for pointers: https://github.com/huggingface/transformers/blob/main/examples/pytorch/text-classification/run_glue.py
+  warnings.warn(DEPRECATION_WARNING, FutureWarning)
+/home/21js160/anaconda3/lib/python3.10/site-packages/transformers/data/metrics/__init__.py:31: FutureWarning: This metric will be removed from the library soon, metrics should be handled with the 🤗 Evaluate library. You can have a look at this example script for pointers: https://github.com/huggingface/transformers/blob/main/examples/pytorch/text-classification/run_glue.py
+  warnings.warn(DEPRECATION_WARNING, FutureWarning)
+2023-10-31 16:19:33 [INFO] Save tuning history to /home/21js160/sptq_textual_models/nc_workspace/2023-10-31_16-18-56/./history.snapshot.
+2023-10-31 16:19:33 [INFO] FP32 baseline is: [Accuracy: 0.9042, Duration (seconds): 11.1493]
+2023-10-31 16:19:33 [INFO] Quantize the model with default config.
+2023-10-31 16:19:34 [WARNING] Reset `calibration.dataloader.batch_size` field to 5 to make sure the sampling_size is divisible exactly by batch size
+2023-10-31 16:20:36 [INFO] |*******Mixed Precision Statistics*******|
+2023-10-31 16:20:36 [INFO] +------------------+-------+------+------+
+2023-10-31 16:20:36 [INFO] |     Op Type      | Total | INT8 | FP32 |
+2023-10-31 16:20:36 [INFO] +------------------+-------+------+------+
+2023-10-31 16:20:36 [INFO] |      MatMul      |   37  |  37  |  0   |
+2023-10-31 16:20:36 [INFO] |    Attention     |   12  |  12  |  0   |
+2023-10-31 16:20:36 [INFO] |      Gather      |   5   |  3   |  2   |
+2023-10-31 16:20:36 [INFO] |    Unsqueeze     |   1   |  0   |  1   |
+2023-10-31 16:20:36 [INFO] |      Slice       |   1   |  0   |  1   |
+2023-10-31 16:20:36 [INFO] |  QuantizeLinear  |   89  |  89  |  0   |
+2023-10-31 16:20:36 [INFO] | DequantizeLinear |  153  | 153  |  0   |
+2023-10-31 16:20:36 [INFO] +------------------+-------+------+------+
+2023-10-31 16:20:36 [INFO] Pass quantize model elapsed time: 63403.96 ms
+/home/21js160/anaconda3/lib/python3.10/site-packages/transformers/data/metrics/__init__.py:61: FutureWarning: This metric will be removed from the library soon, metrics should be handled with the 🤗 Evaluate library. You can have a look at this example script for pointers: https://github.com/huggingface/transformers/blob/main/examples/pytorch/text-classification/run_glue.py
+  warnings.warn(DEPRECATION_WARNING, FutureWarning)
+/home/21js160/anaconda3/lib/python3.10/site-packages/transformers/data/metrics/__init__.py:37: FutureWarning: This metric will be removed from the library soon, metrics should be handled with the 🤗 Evaluate library. You can have a look at this example script for pointers: https://github.com/huggingface/transformers/blob/main/examples/pytorch/text-classification/run_glue.py
+  warnings.warn(DEPRECATION_WARNING, FutureWarning)
+/home/21js160/anaconda3/lib/python3.10/site-packages/transformers/data/metrics/__init__.py:31: FutureWarning: This metric will be removed from the library soon, metrics should be handled with the 🤗 Evaluate library. You can have a look at this example script for pointers: https://github.com/huggingface/transformers/blob/main/examples/pytorch/text-classification/run_glue.py
+  warnings.warn(DEPRECATION_WARNING, FutureWarning)
+2023-10-31 16:20:51 [INFO] Tune 1 result is: [Accuracy (int8|fp32): 0.8986|0.9042, Duration (seconds) (int8|fp32): 14.0805|11.1493], Best tune result is: [Accuracy: 0.8986, Duration (seconds): 14.0805]
+2023-10-31 16:20:51 [INFO] |**********************Tune Result Statistics**********************|
+2023-10-31 16:20:51 [INFO] +--------------------+----------+---------------+------------------+
+2023-10-31 16:20:51 [INFO] |     Info Type      | Baseline | Tune 1 result | Best tune result |
+2023-10-31 16:20:51 [INFO] +--------------------+----------+---------------+------------------+
+2023-10-31 16:20:51 [INFO] |      Accuracy      | 0.9042   |    0.8986     |     0.8986       |
+2023-10-31 16:20:51 [INFO] | Duration (seconds) | 11.1493  |    14.0805    |     14.0805      |
+2023-10-31 16:20:51 [INFO] +--------------------+----------+---------------+------------------+
+2023-10-31 16:20:51 [INFO] [Strategy] Found a model that meets the accuracy requirements.
+2023-10-31 16:20:51 [INFO] Save tuning history to /home/21js160/sptq_textual_models/nc_workspace/2023-10-31_16-18-56/./history.snapshot.
+2023-10-31 16:20:51 [INFO] [Strategy] Found the model meets accuracy requirements, ending the tuning process.
+2023-10-31 16:20:51 [INFO] Specified timeout or max trials is reached! Found a quantized model which meet accuracy goal. Exit.
+2023-10-31 16:20:51 [INFO] Save deploy yaml to /home/21js160/sptq_textual_models/nc_workspace/2023-10-31_16-18-56/deploy.yaml
+The Elapsed Time is : 111.4467006418854

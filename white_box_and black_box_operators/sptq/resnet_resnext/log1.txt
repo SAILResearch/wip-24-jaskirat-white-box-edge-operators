@@ -1,0 +1,143 @@
+nohup: ignoring input
++ main --input_model=resnext101.onnx --dataset_location=/home/21js160/jk/imagenet --label_path=val.txt --output_model=resnext101_int8_sptq.onnx --quant_format=QDQ
++ init_params --input_model=resnext101.onnx --dataset_location=/home/21js160/jk/imagenet --label_path=val.txt --output_model=resnext101_int8_sptq.onnx --quant_format=QDQ
++ for var in "$@"
++ case $var in
+++ echo --input_model=resnext101.onnx
+++ cut -f2 -d=
++ input_model=resnext101.onnx
++ for var in "$@"
++ case $var in
+++ echo --dataset_location=/home/21js160/jk/imagenet
+++ cut -f2 -d=
++ dataset_location=/home/21js160/jk/imagenet
++ for var in "$@"
++ case $var in
+++ echo --label_path=val.txt
+++ cut -f2 -d=
++ label_path=val.txt
++ for var in "$@"
++ case $var in
+++ echo --output_model=resnext101_int8_sptq.onnx
+++ cut -f2 -d=
++ output_model=resnext101_int8_sptq.onnx
++ for var in "$@"
++ case $var in
+++ echo --quant_format=QDQ
+++ cut -f2 -d=
++ quant_format=QDQ
++ run_tuning
++ python main.py --model_path resnext101.onnx --dataset_location /home/21js160/jk/imagenet --label_path val.txt --output_model resnext101_int8_sptq.onnx --quant_format QDQ --tune
+2023-10-24 18:03:12 [INFO] Start auto tuning.
+2023-10-24 18:03:12 [INFO] Execute the tuning process due to detect the evaluation function.
+2023-10-24 18:03:12 [INFO] Adaptor has 5 recipes.
+2023-10-24 18:03:12 [INFO] 0 recipes specified by user.
+2023-10-24 18:03:12 [INFO] 3 recipes require future tuning.
+2023-10-24 18:03:12 [INFO] *** Initialize auto tuning
+2023-10-24 18:03:12 [INFO] {
+2023-10-24 18:03:12 [INFO]     'PostTrainingQuantConfig': {
+2023-10-24 18:03:12 [INFO]         'AccuracyCriterion': {
+2023-10-24 18:03:12 [INFO]             'criterion': 'relative',
+2023-10-24 18:03:12 [INFO]             'higher_is_better': True,
+2023-10-24 18:03:12 [INFO]             'tolerable_loss': 0.01,
+2023-10-24 18:03:12 [INFO]             'absolute': None,
+2023-10-24 18:03:12 [INFO]             'keys': <bound method AccuracyCriterion.keys of <neural_compressor.config.AccuracyCriterion object at 0x7fcd02189de0>>,
+2023-10-24 18:03:12 [INFO]             'relative': 0.01
+2023-10-24 18:03:12 [INFO]         },
+2023-10-24 18:03:12 [INFO]         'approach': 'post_training_static_quant',
+2023-10-24 18:03:12 [INFO]         'backend': 'default',
+2023-10-24 18:03:12 [INFO]         'calibration_sampling_size': [
+2023-10-24 18:03:12 [INFO]             100
+2023-10-24 18:03:12 [INFO]         ],
+2023-10-24 18:03:12 [INFO]         'device': 'cpu',
+2023-10-24 18:03:12 [INFO]         'diagnosis': False,
+2023-10-24 18:03:12 [INFO]         'domain': 'auto',
+2023-10-24 18:03:12 [INFO]         'example_inputs': None,
+2023-10-24 18:03:12 [INFO]         'excluded_precisions': [
+2023-10-24 18:03:12 [INFO]         ],
+2023-10-24 18:03:12 [INFO]         'framework': 'onnxruntime',
+2023-10-24 18:03:12 [INFO]         'inputs': [
+2023-10-24 18:03:12 [INFO]         ],
+2023-10-24 18:03:12 [INFO]         'model_name': '',
+2023-10-24 18:03:12 [INFO]         'ni_workload_name': 'quantization',
+2023-10-24 18:03:12 [INFO]         'op_name_dict': None,
+2023-10-24 18:03:12 [INFO]         'op_type_dict': None,
+2023-10-24 18:03:12 [INFO]         'outputs': [
+2023-10-24 18:03:12 [INFO]         ],
+2023-10-24 18:03:12 [INFO]         'quant_format': 'QDQ',
+2023-10-24 18:03:12 [INFO]         'quant_level': 'auto',
+2023-10-24 18:03:12 [INFO]         'recipes': {
+2023-10-24 18:03:12 [INFO]             'smooth_quant': False,
+2023-10-24 18:03:12 [INFO]             'smooth_quant_args': {
+2023-10-24 18:03:12 [INFO]             },
+2023-10-24 18:03:12 [INFO]             'layer_wise_quant': False,
+2023-10-24 18:03:12 [INFO]             'layer_wise_quant_args': {
+2023-10-24 18:03:12 [INFO]             },
+2023-10-24 18:03:12 [INFO]             'fast_bias_correction': False,
+2023-10-24 18:03:12 [INFO]             'weight_correction': False,
+2023-10-24 18:03:12 [INFO]             'gemm_to_matmul': True,
+2023-10-24 18:03:12 [INFO]             'graph_optimization_level': None,
+2023-10-24 18:03:12 [INFO]             'first_conv_or_matmul_quantization': True,
+2023-10-24 18:03:12 [INFO]             'last_conv_or_matmul_quantization': True,
+2023-10-24 18:03:12 [INFO]             'pre_post_process_quantization': True,
+2023-10-24 18:03:12 [INFO]             'add_qdq_pair_to_weight': False,
+2023-10-24 18:03:12 [INFO]             'optypes_to_exclude_output_quant': [
+2023-10-24 18:03:12 [INFO]             ],
+2023-10-24 18:03:12 [INFO]             'dedicated_qdq_pair': False,
+2023-10-24 18:03:12 [INFO]             'rtn_args': {
+2023-10-24 18:03:12 [INFO]             },
+2023-10-24 18:03:12 [INFO]             'awq_args': {
+2023-10-24 18:03:12 [INFO]             },
+2023-10-24 18:03:12 [INFO]             'gptq_args': {
+2023-10-24 18:03:12 [INFO]             },
+2023-10-24 18:03:12 [INFO]             'teq_args': {
+2023-10-24 18:03:12 [INFO]             }
+2023-10-24 18:03:12 [INFO]         },
+2023-10-24 18:03:12 [INFO]         'reduce_range': None,
+2023-10-24 18:03:12 [INFO]         'TuningCriterion': {
+2023-10-24 18:03:12 [INFO]             'max_trials': 100,
+2023-10-24 18:03:12 [INFO]             'objective': [
+2023-10-24 18:03:12 [INFO]                 'performance'
+2023-10-24 18:03:12 [INFO]             ],
+2023-10-24 18:03:12 [INFO]             'strategy': 'basic',
+2023-10-24 18:03:12 [INFO]             'strategy_kwargs': None,
+2023-10-24 18:03:12 [INFO]             'timeout': 0
+2023-10-24 18:03:12 [INFO]         },
+2023-10-24 18:03:12 [INFO]         'use_bf16': True
+2023-10-24 18:03:12 [INFO]     }
+2023-10-24 18:03:12 [INFO] }
+2023-10-24 18:03:12 [WARNING] [Strategy] Please install `mpi4py` correctly if using distributed tuning; otherwise, ignore this warning.
+2023-10-24 18:03:14 [WARNING] The model is automatically detected as a non-NLP model. You can use 'domain' argument in 'PostTrainingQuantConfig' to overwrite it
+2023-10-24 18:03:14 [WARNING] Graph optimization level is automatically set to ENABLE_BASIC. You can use 'recipe' argument in 'PostTrainingQuantConfig'to overwrite it
+2023-10-24 18:03:19 [INFO] Get FP32 model baseline.
+2023-10-24 18:55:01 [INFO] Save tuning history to /home/21js160/sptq_image_models/nc_workspace/2023-10-24_18-03-02/./history.snapshot.
+2023-10-24 18:55:01 [INFO] FP32 baseline is: [Accuracy: 0.8079, Duration (seconds): 3102.1253]
+2023-10-24 18:55:01 [INFO] Quantize the model with default config.
+2023-10-24 18:58:40 [INFO] |********Mixed Precision Statistics*******|
+2023-10-24 18:58:40 [INFO] +-------------------+-------+------+------+
+2023-10-24 18:58:40 [INFO] |      Op Type      | Total | INT8 | FP32 |
+2023-10-24 18:58:40 [INFO] +-------------------+-------+------+------+
+2023-10-24 18:58:40 [INFO] |        Conv       |  104  | 104  |  0   |
+2023-10-24 18:58:40 [INFO] |       MatMul      |   1   |  1   |  0   |
+2023-10-24 18:58:40 [INFO] |        Relu       |   33  |  0   |  33  |
+2023-10-24 18:58:40 [INFO] |      MaxPool      |   1   |  1   |  0   |
+2023-10-24 18:58:40 [INFO] | GlobalAveragePool |   1   |  0   |  1   |
+2023-10-24 18:58:40 [INFO] |      Flatten      |   1   |  1   |  0   |
+2023-10-24 18:58:40 [INFO] |   QuantizeLinear  |  142  | 142  |  0   |
+2023-10-24 18:58:40 [INFO] |  DequantizeLinear |  351  | 351  |  0   |
+2023-10-24 18:58:40 [INFO] +-------------------+-------+------+------+
+2023-10-24 18:58:40 [INFO] Pass quantize model elapsed time: 218478.07 ms
+2023-10-24 19:41:09 [INFO] Tune 1 result is: [Accuracy (int8|fp32): 0.8065|0.8079, Duration (seconds) (int8|fp32): 2549.1895|3102.1253], Best tune result is: [Accuracy: 0.8065, Duration (seconds): 2549.1895]
+2023-10-24 19:41:09 [INFO] |***********************Tune Result Statistics***********************|
+2023-10-24 19:41:09 [INFO] +--------------------+------------+---------------+------------------+
+2023-10-24 19:41:09 [INFO] |     Info Type      |  Baseline  | Tune 1 result | Best tune result |
+2023-10-24 19:41:09 [INFO] +--------------------+------------+---------------+------------------+
+2023-10-24 19:41:09 [INFO] |      Accuracy      |  0.8079    |    0.8065     |     0.8065       |
+2023-10-24 19:41:09 [INFO] | Duration (seconds) | 3102.1253  |   2549.1895   |    2549.1895     |
+2023-10-24 19:41:09 [INFO] +--------------------+------------+---------------+------------------+
+2023-10-24 19:41:09 [INFO] [Strategy] Found a model that meets the accuracy requirements.
+2023-10-24 19:41:09 [INFO] Save tuning history to /home/21js160/sptq_image_models/nc_workspace/2023-10-24_18-03-02/./history.snapshot.
+2023-10-24 19:41:09 [INFO] [Strategy] Found the model meets accuracy requirements, ending the tuning process.
+2023-10-24 19:41:09 [INFO] Specified timeout or max trials is reached! Found a quantized model which meet accuracy goal. Exit.
+2023-10-24 19:41:09 [INFO] Save deploy yaml to /home/21js160/sptq_image_models/nc_workspace/2023-10-24_18-03-02/deploy.yaml
+The Elapsed Time is : 5889.002545660944

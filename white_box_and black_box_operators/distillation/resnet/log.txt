@@ -1,0 +1,36 @@
+nohup: ignoring input
++ main
++ init_params
++ output_model=saved_results
++ dataset_location=/home/21js160/white_box_operations_for_image_models/ILSVRC2012
++ input_model=wide_resnet50_2
++ run_tuning
++ extra_cmd=
++ '[' -n saved_results ']'
++ extra_cmd='--tuned_checkpoint saved_results'
++ extra_cmd='--tuned_checkpoint saved_results /home/21js160/white_box_operations_for_image_models/ILSVRC2012'
++ python main.py --pretrained -t -a wide_resnet50_2 -j 1 -b 128 --tuned_checkpoint saved_results /home/21js160/white_box_operations_for_image_models/ILSVRC2012
+/home/21js160/anaconda3/lib/python3.10/site-packages/torch/ao/quantization/fx/fuse.py:54: UserWarning: Passing a fuse_custom_config_dict to fuse is deprecated and will not be supported in a future version. Please pass in a FuseCustomConfig instead.
+  warnings.warn(
+2023-11-06 17:43:55 [INFO] Attention Blocks: 0
+2023-11-06 17:43:55 [INFO] FFN Blocks: 0
+/home/21js160/anaconda3/lib/python3.10/site-packages/torch/ao/quantization/observer.py:214: UserWarning: Please use quant_min and quant_max to specify the range for observers.                     reduce_range will be deprecated in a future release of PyTorch.
+  warnings.warn(
+=> using pre-trained model 'wide_resnet50_2'
+..................................................................................................................................................................................................................2023-11-06 19:57:36 [INFO] |******Mixed Precision Statistics******|
+2023-11-06 19:57:36 [INFO] +----------------------+-------+-------+
+2023-11-06 19:57:36 [INFO] |       Op Type        | Total |  INT8 |
+2023-11-06 19:57:36 [INFO] +----------------------+-------+-------+
+2023-11-06 19:57:36 [INFO] | quantize_per_tensor  |   1   |   1   |
+2023-11-06 19:57:36 [INFO] |      ConvReLU2d      |   33  |   33  |
+2023-11-06 19:57:36 [INFO] |      MaxPool2d       |   1   |   1   |
+2023-11-06 19:57:36 [INFO] |        Conv2d        |   20  |   20  |
+2023-11-06 19:57:36 [INFO] |       add_relu       |   16  |   16  |
+2023-11-06 19:57:36 [INFO] |  AdaptiveAvgPool2d   |   1   |   1   |
+2023-11-06 19:57:36 [INFO] |       flatten        |   1   |   1   |
+2023-11-06 19:57:36 [INFO] |        Linear        |   1   |   1   |
+2023-11-06 19:57:36 [INFO] |      dequantize      |   1   |   1   |
+2023-11-06 19:57:36 [INFO] +----------------------+-------+-------+
+2023-11-06 19:57:36 [INFO] Training finished!
+2023-11-06 19:57:37 [INFO] Save config file and weights of quantized model to /home/21js160/white_box_operations_for_image_models/resnet_distillation/saved_results.
+..............................The Elapsed Time is : 8029.088918525726

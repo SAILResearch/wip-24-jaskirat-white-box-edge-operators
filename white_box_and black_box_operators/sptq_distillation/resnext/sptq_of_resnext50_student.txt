@@ -1,0 +1,167 @@
+nohup: ignoring input
+2023-09-26 01:14:59 [INFO] Start auto tuning.
+2023-09-26 01:14:59 [INFO] Execute the tuning process due to detect the evaluation function.
+2023-09-26 01:14:59 [INFO] Adaptor has 5 recipes.
+2023-09-26 01:14:59 [INFO] 0 recipes specified by user.
+2023-09-26 01:14:59 [INFO] 3 recipes require future tuning.
+2023-09-26 01:14:59 [INFO] *** Initialize auto tuning
+2023-09-26 01:14:59 [INFO] {
+2023-09-26 01:14:59 [INFO]     'PostTrainingQuantConfig': {
+2023-09-26 01:14:59 [INFO]         'AccuracyCriterion': {
+2023-09-26 01:14:59 [INFO]             'criterion': 'relative',
+2023-09-26 01:14:59 [INFO]             'higher_is_better': True,
+2023-09-26 01:14:59 [INFO]             'tolerable_loss': 0.01,
+2023-09-26 01:14:59 [INFO]             'absolute': None,
+2023-09-26 01:14:59 [INFO]             'keys': <bound method AccuracyCriterion.keys of <neural_compressor.config.AccuracyCriterion object at 0x7f14ccbdc490>>,
+2023-09-26 01:14:59 [INFO]             'relative': 0.01
+2023-09-26 01:14:59 [INFO]         },
+2023-09-26 01:14:59 [INFO]         'approach': 'post_training_static_quant',
+2023-09-26 01:14:59 [INFO]         'backend': 'default',
+2023-09-26 01:14:59 [INFO]         'calibration_sampling_size': [
+2023-09-26 01:14:59 [INFO]             100
+2023-09-26 01:14:59 [INFO]         ],
+2023-09-26 01:14:59 [INFO]         'device': 'cpu',
+2023-09-26 01:14:59 [INFO]         'diagnosis': False,
+2023-09-26 01:14:59 [INFO]         'domain': 'auto',
+2023-09-26 01:14:59 [INFO]         'example_inputs': None,
+2023-09-26 01:14:59 [INFO]         'excluded_precisions': [
+2023-09-26 01:14:59 [INFO]         ],
+2023-09-26 01:14:59 [INFO]         'framework': 'pytorch_fx',
+2023-09-26 01:14:59 [INFO]         'inputs': [
+2023-09-26 01:14:59 [INFO]         ],
+2023-09-26 01:14:59 [INFO]         'model_name': '',
+2023-09-26 01:14:59 [INFO]         'ni_workload_name': 'quantization',
+2023-09-26 01:14:59 [INFO]         'op_name_dict': None,
+2023-09-26 01:14:59 [INFO]         'op_type_dict': None,
+2023-09-26 01:14:59 [INFO]         'outputs': [
+2023-09-26 01:14:59 [INFO]         ],
+2023-09-26 01:14:59 [INFO]         'quant_format': 'default',
+2023-09-26 01:14:59 [INFO]         'quant_level': 'auto',
+2023-09-26 01:14:59 [INFO]         'recipes': {
+2023-09-26 01:14:59 [INFO]             'smooth_quant': False,
+2023-09-26 01:14:59 [INFO]             'smooth_quant_args': {
+2023-09-26 01:14:59 [INFO]             },
+2023-09-26 01:14:59 [INFO]             'layer_wise_quant': False,
+2023-09-26 01:14:59 [INFO]             'layer_wise_quant_args': {
+2023-09-26 01:14:59 [INFO]             },
+2023-09-26 01:14:59 [INFO]             'fast_bias_correction': False,
+2023-09-26 01:14:59 [INFO]             'weight_correction': False,
+2023-09-26 01:14:59 [INFO]             'gemm_to_matmul': True,
+2023-09-26 01:14:59 [INFO]             'graph_optimization_level': None,
+2023-09-26 01:14:59 [INFO]             'first_conv_or_matmul_quantization': True,
+2023-09-26 01:14:59 [INFO]             'last_conv_or_matmul_quantization': True,
+2023-09-26 01:14:59 [INFO]             'pre_post_process_quantization': True,
+2023-09-26 01:14:59 [INFO]             'add_qdq_pair_to_weight': False,
+2023-09-26 01:14:59 [INFO]             'optypes_to_exclude_output_quant': [
+2023-09-26 01:14:59 [INFO]             ],
+2023-09-26 01:14:59 [INFO]             'dedicated_qdq_pair': False,
+2023-09-26 01:14:59 [INFO]             'rtn_args': {
+2023-09-26 01:14:59 [INFO]             },
+2023-09-26 01:14:59 [INFO]             'awq_args': {
+2023-09-26 01:14:59 [INFO]             },
+2023-09-26 01:14:59 [INFO]             'gptq_args': {
+2023-09-26 01:14:59 [INFO]             },
+2023-09-26 01:14:59 [INFO]             'teq_args': {
+2023-09-26 01:14:59 [INFO]             }
+2023-09-26 01:14:59 [INFO]         },
+2023-09-26 01:14:59 [INFO]         'reduce_range': None,
+2023-09-26 01:14:59 [INFO]         'TuningCriterion': {
+2023-09-26 01:14:59 [INFO]             'max_trials': 100,
+2023-09-26 01:14:59 [INFO]             'objective': [
+2023-09-26 01:14:59 [INFO]                 'performance'
+2023-09-26 01:14:59 [INFO]             ],
+2023-09-26 01:14:59 [INFO]             'strategy': 'basic',
+2023-09-26 01:14:59 [INFO]             'strategy_kwargs': None,
+2023-09-26 01:14:59 [INFO]             'timeout': 0
+2023-09-26 01:14:59 [INFO]         },
+2023-09-26 01:14:59 [INFO]         'use_bf16': True
+2023-09-26 01:14:59 [INFO]     }
+2023-09-26 01:14:59 [INFO] }
+2023-09-26 01:14:59 [WARNING] [Strategy] Please install `mpi4py` correctly if using distributed tuning; otherwise, ignore this warning.
+/home/21js160/qat_roberta/env/lib/python3.10/site-packages/torch/ao/quantization/fx/fuse.py:54: UserWarning: Passing a fuse_custom_config_dict to fuse is deprecated and will not be supported in a future version. Please pass in a FuseCustomConfig instead.
+  warnings.warn(
+2023-09-26 01:15:00 [INFO] Attention Blocks: 0
+2023-09-26 01:15:00 [INFO] FFN Blocks: 0
+2023-09-26 01:15:00 [INFO] Pass query framework capability elapsed time: 1169.07 ms
+2023-09-26 01:15:00 [INFO] Get FP32 model baseline.
+=> creating model 'resnext50_32x4d'
+2023-09-26 02:31:47 [INFO] Save tuning history to /home/21js160/white_box_operations_for_image_models/nc_workspace/2023-09-26_01-14-55/./history.snapshot.
+2023-09-26 02:31:47 [INFO] FP32 baseline is: [Accuracy: 0.8067, Duration (seconds): 4606.8004]
+2023-09-26 02:31:47 [INFO] Quantize the model with default config.
+/home/21js160/qat_roberta/env/lib/python3.10/site-packages/torch/ao/quantization/observer.py:214: UserWarning: Please use quant_min and quant_max to specify the range for observers.                     reduce_range will be deprecated in a future release of PyTorch.
+  warnings.warn(
+2023-09-26 02:31:50 [WARNING] Please note that calibration sampling size 100 isn't divisible exactly by batch size 256. So the real sampling size is 256.
+Test: [  0/196]	Time  0.000 ( 0.000)	Loss 3.7507e-01 (3.7507e-01)	Acc@1  90.62 ( 90.62)	Acc@5  98.83 ( 98.83)
+Test: [ 10/196]	Time 21.210 (21.708)	Loss 7.7481e-01 (5.3364e-01)	Acc@1  80.86 ( 86.33)	Acc@5  94.53 ( 97.05)
+Test: [ 20/196]	Time 20.710 (21.668)	Loss 5.4717e-01 (5.4088e-01)	Acc@1  90.23 ( 86.25)	Acc@5  95.31 ( 96.97)
+Test: [ 30/196]	Time 25.271 (22.368)	Loss 6.2769e-01 (5.0729e-01)	Acc@1  85.16 ( 87.34)	Acc@5  96.88 ( 97.23)
+Test: [ 40/196]	Time 25.702 (23.040)	Loss 5.0242e-01 (5.4647e-01)	Acc@1  86.33 ( 86.09)	Acc@5  97.66 ( 97.07)
+Test: [ 50/196]	Time 25.274 (23.505)	Loss 3.1207e-01 (5.4358e-01)	Acc@1  92.97 ( 85.93)	Acc@5  98.05 ( 97.17)
+Test: [ 60/196]	Time 26.159 (23.634)	Loss 6.4407e-01 (5.6017e-01)	Acc@1  79.69 ( 85.51)	Acc@5  96.88 ( 97.20)
+Test: [ 70/196]	Time 24.800 (23.866)	Loss 6.4296e-01 (5.4877e-01)	Acc@1  83.20 ( 85.77)	Acc@5  99.22 ( 97.33)
+Test: [ 80/196]	Time 22.504 (23.928)	Loss 1.1138e+00 (5.7042e-01)	Acc@1  68.75 ( 85.29)	Acc@5  94.53 ( 97.20)
+Test: [ 90/196]	Time 24.517 (24.006)	Loss 1.5544e+00 (6.1026e-01)	Acc@1  62.11 ( 84.39)	Acc@5  88.28 ( 96.76)
+Test: [100/196]	Time 24.460 (24.022)	Loss 8.7833e-01 (6.5254e-01)	Acc@1  74.61 ( 83.42)	Acc@5  94.14 ( 96.36)
+Test: [110/196]	Time 23.519 (24.090)	Loss 7.3070e-01 (6.7232e-01)	Acc@1  82.42 ( 83.03)	Acc@5  95.70 ( 96.16)
+Test: [120/196]	Time 20.994 (24.061)	Loss 9.2644e-01 (6.8316e-01)	Acc@1  80.47 ( 82.85)	Acc@5  93.36 ( 96.00)
+Test: [130/196]	Time 23.577 (24.035)	Loss 4.7226e-01 (7.0953e-01)	Acc@1  87.89 ( 82.20)	Acc@5  97.66 ( 95.77)
+Test: [140/196]	Time 23.391 (23.930)	Loss 7.1004e-01 (7.2289e-01)	Acc@1  81.64 ( 81.95)	Acc@5  95.31 ( 95.67)
+Test: [150/196]	Time 22.647 (23.833)	Loss 7.1916e-01 (7.3697e-01)	Acc@1  83.98 ( 81.67)	Acc@5  94.92 ( 95.48)
+Test: [160/196]	Time 23.272 (23.816)	Loss 5.7268e-01 (7.4885e-01)	Acc@1  87.11 ( 81.40)	Acc@5  94.53 ( 95.34)
+Test: [170/196]	Time 23.722 (23.745)	Loss 4.5173e-01 (7.6226e-01)	Acc@1  87.11 ( 81.02)	Acc@5  98.05 ( 95.19)
+Test: [180/196]	Time 19.716 (23.632)	Loss 1.0561e+00 (7.7746e-01)	Acc@1  72.27 ( 80.68)	Acc@5  94.92 ( 95.09)
+Test: [190/196]	Time 22.155 (23.577)	Loss 1.1340e+00 (7.7848e-01)	Acc@1  67.97 ( 80.60)	Acc@5  95.70 ( 95.13)
+Batch size = 256
+Accuracy: 0.80672 Accuracy@5 0.95176
+2023-09-26 02:32:28 [INFO] |******Mixed Precision Statistics******|
+2023-09-26 02:32:28 [INFO] +----------------------+-------+-------+
+2023-09-26 02:32:28 [INFO] |       Op Type        | Total |  INT8 |
+2023-09-26 02:32:28 [INFO] +----------------------+-------+-------+
+2023-09-26 02:32:28 [INFO] | quantize_per_tensor  |   1   |   1   |
+2023-09-26 02:32:28 [INFO] |      ConvReLU2d      |   33  |   33  |
+2023-09-26 02:32:28 [INFO] |      MaxPool2d       |   1   |   1   |
+2023-09-26 02:32:28 [INFO] |        Conv2d        |   20  |   20  |
+2023-09-26 02:32:28 [INFO] |       add_relu       |   16  |   16  |
+2023-09-26 02:32:28 [INFO] |  AdaptiveAvgPool2d   |   1   |   1   |
+2023-09-26 02:32:28 [INFO] |       flatten        |   1   |   1   |
+2023-09-26 02:32:28 [INFO] |        Linear        |   1   |   1   |
+2023-09-26 02:32:28 [INFO] |      dequantize      |   1   |   1   |
+2023-09-26 02:32:28 [INFO] +----------------------+-------+-------+
+2023-09-26 02:32:28 [INFO] Pass quantize model elapsed time: 40985.29 ms
+2023-09-26 02:58:10 [INFO] Tune 1 result is: [Accuracy (int8|fp32): 0.8046|0.8067, Duration (seconds) (int8|fp32): 1541.9368|4606.8004], Best tune result is: [Accuracy: 0.8046, Duration (seconds): 1541.9368]
+2023-09-26 02:58:10 [INFO] |***********************Tune Result Statistics***********************|
+2023-09-26 02:58:10 [INFO] +--------------------+------------+---------------+------------------+
+2023-09-26 02:58:10 [INFO] |     Info Type      |  Baseline  | Tune 1 result | Best tune result |
+2023-09-26 02:58:10 [INFO] +--------------------+------------+---------------+------------------+
+2023-09-26 02:58:10 [INFO] |      Accuracy      |  0.8067    |    0.8046     |     0.8046       |
+2023-09-26 02:58:10 [INFO] | Duration (seconds) | 4606.8004  |   1541.9368   |    1541.9368     |
+2023-09-26 02:58:10 [INFO] +--------------------+------------+---------------+------------------+
+2023-09-26 02:58:10 [INFO] [Strategy] Found a model that meets the accuracy requirements.
+2023-09-26 02:58:10 [INFO] Save tuning history to /home/21js160/white_box_operations_for_image_models/nc_workspace/2023-09-26_01-14-55/./history.snapshot.
+2023-09-26 02:58:10 [INFO] [Strategy] Found the model meets accuracy requirements, ending the tuning process.
+2023-09-26 02:58:10 [INFO] Specified timeout or max trials is reached! Found a quantized model which meet accuracy goal. Exit.
+2023-09-26 02:58:10 [INFO] Save deploy yaml to /home/21js160/white_box_operations_for_image_models/nc_workspace/2023-09-26_01-14-55/deploy.yaml
+2023-09-26 02:58:10 [INFO] Save config file and weights of quantized model to /home/21js160/white_box_operations_for_image_models/sptq_of_resnext50_distilled_model.
+Test: [  0/196]	Time  0.000 ( 0.000)	Loss 3.9473e-01 (3.9473e-01)	Acc@1  89.45 ( 89.45)	Acc@5  98.44 ( 98.44)
+Test: [ 10/196]	Time  7.751 ( 7.196)	Loss 7.9250e-01 (5.5017e-01)	Acc@1  80.08 ( 85.87)	Acc@5  95.31 ( 97.09)
+Test: [ 20/196]	Time  8.079 ( 7.798)	Loss 5.7088e-01 (5.5521e-01)	Acc@1  90.23 ( 85.94)	Acc@5  96.09 ( 97.08)
+Test: [ 30/196]	Time  7.737 ( 7.934)	Loss 6.5021e-01 (5.1921e-01)	Acc@1  84.77 ( 87.06)	Acc@5  96.09 ( 97.24)
+Test: [ 40/196]	Time  9.307 ( 7.720)	Loss 5.2063e-01 (5.5611e-01)	Acc@1  87.11 ( 85.91)	Acc@5  97.66 ( 97.04)
+Test: [ 50/196]	Time  8.233 ( 7.800)	Loss 3.1731e-01 (5.5293e-01)	Acc@1  92.97 ( 85.81)	Acc@5  97.66 ( 97.13)
+Test: [ 60/196]	Time  7.373 ( 7.831)	Loss 6.5306e-01 (5.6994e-01)	Acc@1  79.69 ( 85.36)	Acc@5  96.48 ( 97.16)
+Test: [ 70/196]	Time  7.983 ( 7.816)	Loss 6.9592e-01 (5.5901e-01)	Acc@1  80.86 ( 85.59)	Acc@5  98.44 ( 97.27)
+Test: [ 80/196]	Time  7.727 ( 7.831)	Loss 1.0867e+00 (5.7975e-01)	Acc@1  69.14 ( 85.15)	Acc@5  94.92 ( 97.11)
+Test: [ 90/196]	Time  7.305 ( 7.752)	Loss 1.4885e+00 (6.1979e-01)	Acc@1  64.84 ( 84.26)	Acc@5  89.45 ( 96.69)
+Test: [100/196]	Time  8.370 ( 7.793)	Loss 9.1698e-01 (6.6258e-01)	Acc@1  76.56 ( 83.28)	Acc@5  94.14 ( 96.30)
+Test: [110/196]	Time  8.537 ( 7.822)	Loss 7.0500e-01 (6.8178e-01)	Acc@1  83.59 ( 82.92)	Acc@5  96.48 ( 96.10)
+Test: [120/196]	Time  6.794 ( 7.800)	Loss 9.1943e-01 (6.9247e-01)	Acc@1  80.47 ( 82.76)	Acc@5  93.36 ( 95.93)
+Test: [130/196]	Time  8.040 ( 7.764)	Loss 4.8014e-01 (7.1810e-01)	Acc@1  87.50 ( 82.09)	Acc@5  98.05 ( 95.71)
+Test: [140/196]	Time  8.051 ( 7.791)	Loss 6.8303e-01 (7.3204e-01)	Acc@1  81.64 ( 81.77)	Acc@5  95.70 ( 95.61)
+Test: [150/196]	Time  8.513 ( 7.801)	Loss 7.1058e-01 (7.4600e-01)	Acc@1  83.98 ( 81.48)	Acc@5  95.70 ( 95.42)
+Test: [160/196]	Time  7.908 ( 7.832)	Loss 5.8931e-01 (7.5822e-01)	Acc@1  86.72 ( 81.21)	Acc@5  95.31 ( 95.28)
+Test: [170/196]	Time  7.165 ( 7.808)	Loss 4.4028e-01 (7.7162e-01)	Acc@1  87.11 ( 80.84)	Acc@5  98.44 ( 95.12)
+Test: [180/196]	Time  7.739 ( 7.794)	Loss 1.0346e+00 (7.8643e-01)	Acc@1  73.05 ( 80.50)	Acc@5  96.09 ( 95.01)
+Test: [190/196]	Time  9.060 ( 7.822)	Loss 1.1447e+00 (7.8729e-01)	Acc@1  67.19 ( 80.39)	Acc@5  95.70 ( 95.03)
+Batch size = 256
+Accuracy: 0.80460 Accuracy@5 0.95076
+The Elapsed Time is : 6201.698775717989

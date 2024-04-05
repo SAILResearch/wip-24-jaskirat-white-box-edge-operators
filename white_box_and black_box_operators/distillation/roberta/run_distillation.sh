@@ -1,0 +1,1 @@
+python run_glue_no_trainer_distillation.py --task_name mrpc --model_name_or_path haisongzhang/roberta-tiny-cased  --teacher_model_name_or_path Intel/roberta-base-mrpc  --do_distillation --max_seq_length 128 --per_device_train_batch_size 32 --learning_rate 1e-4 --num_train_epochs 9  --output_dir ./roberta-tiny1 --loss_weights 0 1 --temperature 2 --seed 5143
