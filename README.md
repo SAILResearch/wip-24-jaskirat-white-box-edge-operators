@@ -4,3 +4,4 @@
 4. Inference_Results contains the Accuracy and latency results of the operators.
 5. Run_Latency_experiments contains the script for running the latency experiments.
 6. graphs folder contains the graphs of partitioning-based operators.
+7. The models generated are attached in the Release Section.
